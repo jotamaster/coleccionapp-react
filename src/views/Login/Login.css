@@ -1,0 +1,32 @@
+.Login-Form {
+    position: relative;
+  min-height : 100vh;
+  width: 100%; 
+}
+.Auth {
+  width: 100%;
+  min-height: 100vh;
+  background: url("../../images/background.jpg") no-repeat center center;
+  background-size: cover;
+}
+.Login-Form-Content {
+  background-color: white;
+  position: absolute;
+  top : 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 70px 25px; 
+}
+@media(min-width:576px){
+  .Login-Bottom {
+    position: relative;
+  }
+}
+@media(min-width:768px){
+  .Login-Bottom {
+    position: absolute;
+    bottom: 0
+  }
+}
+
