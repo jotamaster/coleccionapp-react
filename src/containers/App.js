@@ -2,6 +2,7 @@ import React from 'react'
 import Theme from '../layouts/Theme'
 import Login from '../views/Login/Login'
 import Register from '../views/Register/Register'
+import MisColecciones from '../views/MisColecciones/MisColecciones'
 import { Switch,BrowserRouter as Router,Route } from 'react-router-dom';
 import {httpPost} from '../services/servicesHttp'
 import {ENDPOINTS } from '../constants'
@@ -46,7 +47,10 @@ class App extends React.Component {
             <Router>
                     {login ? ( 
                     <Theme onCloseSession={this.onCloseSession}>
-                       
+                        <Switch>
+                             <Route path="/" exact render={ ()=> <h1>Home</h1> } /> 
+                             <Route path="/colecciones" component={MisColecciones}/> 
+                        </Switch>
                     </Theme>) : (
                          <Switch>
                              <Route path="/" exact render={ ()=> <Login onLogin={this.onLogin}   />  } /> 
