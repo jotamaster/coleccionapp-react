@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import { Switch,BrowserRouter as Router,Route,Link } from 'react-router-dom';
 import {Grid,Hidden,CardContent,Button,CardActions,TextField,FormControlLabel,Card,Typography} from '@material-ui/core'
 import {ChevronRight} from '@material-ui/icons';
 
@@ -57,8 +58,10 @@ class Register extends Component{
                                 <CardActions>
                                     <Grid container justify="space-between">
                                     <Button 
+                                    component={Link}
+                                    to="/"
                                             style={{ color:'#fff',backgroundColor : '#1976D2 '}}
-                                            onClick={()=>this.register()} variant="raised" >
+                                        variant="raised" >
                                                 Volver
                                                 
                                         </Button>
