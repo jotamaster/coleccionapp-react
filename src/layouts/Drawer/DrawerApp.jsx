@@ -1,6 +1,6 @@
 import React from 'react'
 import {Drawer,IconButton,Divider,List,ListItem,ListItemIcon,ListItemText} from '@material-ui/core'
-import {ChevronRight as ChevronRightIcon,ChevronLeft as ChevronLeftIcon,People as PeopleIcon, ViewModule as ViewModuleIcon} from '@material-ui/icons'
+import {ChevronRight as ChevronRightIcon,ChevronLeft as ChevronLeftIcon,People as PeopleIcon, ViewModule as ViewModuleIcon, Person as PersonIcon, Favorite as FavoriteIcon, ExitToApp as ExitToAppIcon} from '@material-ui/icons'
 import { withStyles } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
@@ -40,7 +40,7 @@ const DrawerApp = (props) => {
             <List component="nav">
                 <ListItem button>
                     <ListItemIcon>
-                        <PeopleIcon />
+                        <PersonIcon />
                     </ListItemIcon>
                     <ListItemText primary="Mi Perfil" />
                 </ListItem>
@@ -52,7 +52,7 @@ const DrawerApp = (props) => {
                 </ListItem>
                 <ListItem button>
                     <ListItemIcon>
-                        <PeopleIcon />
+                        <FavoriteIcon />
                     </ListItemIcon>
                     <ListItemText primary="Favoritos" />
                 </ListItem>
@@ -64,7 +64,7 @@ const DrawerApp = (props) => {
                 </ListItem>
                 <ListItem onClick={()=>onCloseSession()} button>
                     <ListItemIcon>
-                        <PeopleIcon />
+                        <ExitToAppIcon />
                     </ListItemIcon>
                     <ListItemText primary="Cerrar Sesión" />
                 </ListItem>
