@@ -51,7 +51,7 @@ class Login extends Component {
                                             component={Link}
                                             to="register"
                                             style={{ color:'#fff',backgroundColor : '#1976D2 '}}
-                                            variant="raised" >
+                                            pullvariant="raised" >
                                                 Registrarse
                                                 
                                         </Button>
