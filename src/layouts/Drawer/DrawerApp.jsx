@@ -21,7 +21,7 @@ const styles = theme => ({
 });
 
 const DrawerApp = (props) => {
-    const { classes,open,handleDrawerClose,theme } = props;
+    const { classes,open,handleDrawerClose,theme,onCloseSession } = props;
     return (
         <Drawer
             variant="persistent"
@@ -62,7 +62,7 @@ const DrawerApp = (props) => {
                     </ListItemIcon>
                     <ListItemText primary="Amistades" />
                 </ListItem>
-                <ListItem button>
+                <ListItem onClick={()=>onCloseSession()} button>
                     <ListItemIcon>
                         <PeopleIcon />
                     </ListItemIcon>

@@ -45,9 +45,8 @@ class App extends React.Component {
         return (
             <Router>
                     {login ? ( 
-                    <Theme>
-                        <h1 style={{color : this.state.toggleColor}}>App</h1>
-                        <button onClick={this.onCloseSession}>button</button>
+                    <Theme onCloseSession={this.onCloseSession}>
+                       
                     </Theme>) : (
                          <Switch>
                              <Route path="/" exact render={ ()=> <Login onLogin={this.onLogin}   />  } /> 
