@@ -12,16 +12,24 @@ class Login extends Component {
     login = ()=>{
         this.props.onLogin(this.state.input,this.state.password)
     }
+    register = ()=>{
+            this.props.onRegister()
+    }
     render(){
         return (
             <div className="Auth">
-                <Grid justify="center" alignItems="center" style={{height : '100vh'}} container spacing={0}>
+                <Grid justify="center" alignItems="center" style={{height : '80vh'}} container spacing={0}>
                     <Card>
+                        
                         <form style={{padding : 25}} noValidate autoComplete="off">
+                        <div style={{backgroundColor:''}}>
+                    
+                        <img src={require('../../images/1icon-256x256.png')} style={{maxHeight: 100, marginLeft : 'auto', marginRight: 'auto',display: 'block'}}/>
+                        </div>
                                 <TextField
                                 id="emailornick"
                                 fullWidth
-                                label="Correo Electrónico o Nick"
+                                label="Correo Electrónico"
                                 value={this.state.input}
                                 onChange={e=>this.setState({input : e.target.value})}
                                 margin="normal"
@@ -38,9 +46,15 @@ class Login extends Component {
                              </form>
                                 <CardActions>
                                     <Grid container justify="space-between">
+                                    <Button 
+                                            style={{ color:'#fff',backgroundColor : '#1976D2 '}}
+                                            onClick={()=>this.register()} variant="raised" >
+                                                Registrarse
+                                                
+                                        </Button>
                                         <Button 
-                                            style={{marginLeft : 'auto'}}
-                                            onClick={()=>this.login()} variant="raised" color="primary">
+                                            style={{marginLeft : 'auto', color:'#fff',backgroundColor : '#1976D2 '}}
+                                            onClick={()=>this.login()} variant="raised" >
                                                 Ingresar
                                                 <ChevronRight />
                                         </Button>

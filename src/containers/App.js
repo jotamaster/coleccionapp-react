@@ -1,13 +1,15 @@
 import React from 'react'
 import Theme from '../layouts/Theme'
 import Login from '../views/Login/Login'
+import Register from '../views/Register/Register'
 import { Switch,BrowserRouter as Router,Route } from 'react-router-dom';
 import {httpPost} from '../services/servicesHttp'
 import {ENDPOINTS } from '../constants'
 
 class App extends React.Component {
     state = {
-        login : false
+        login : false,
+        registro : false
     }
     componentWillMount(){
         if(localStorage.getItem("auth")){
@@ -33,8 +35,13 @@ class App extends React.Component {
             }
         })
     }
+
+    onRegister = ()=>{
+        this.setState({registro : true})
+    }
     render(){
         const {login} = this.state;
+        const {registro} = this.state;
         return (
             <Router>
                     {login ? ( 
@@ -43,7 +50,9 @@ class App extends React.Component {
                         <button onClick={this.onCloseSession}>button</button>
                     </Theme>) : (
                          <Switch>
-                             <Route path="/" exact render={()=> <Login onLogin={this.onLogin} />} />
+                             
+                             <Route path="/" exact render={ ()=> <Login onLogin={this.onLogin}   />  } /> 
+                             <Route path="/register"  component={Register}/> 
                         </Switch>
                         )
                     }
