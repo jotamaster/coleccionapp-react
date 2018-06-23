@@ -50,7 +50,6 @@ class App extends React.Component {
                         <button onClick={this.onCloseSession}>button</button>
                     </Theme>) : (
                          <Switch>
-                             
                              <Route path="/" exact render={ ()=> <Login onLogin={this.onLogin}   />  } /> 
                              <Route path="/register"  component={Register}/> 
                         </Switch>

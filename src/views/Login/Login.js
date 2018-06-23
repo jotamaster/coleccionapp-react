@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import './Login.css'
-import {Grid,Hidden,CardContent,Button,CardActions,TextField,Checkbox,FormControlLabel,Card,Typography} from '@material-ui/core'
+import {Grid,Button,CardActions,TextField,Card} from '@material-ui/core'
+import { Link } from 'react-router-dom'
 import {ChevronRight} from '@material-ui/icons';
 
 
@@ -46,9 +47,11 @@ class Login extends Component {
                              </form>
                                 <CardActions>
                                     <Grid container justify="space-between">
-                                    <Button 
+                                        <Button 
+                                            component={Link}
+                                            to="register"
                                             style={{ color:'#fff',backgroundColor : '#1976D2 '}}
-                                            onClick={()=>this.register()} variant="raised" >
+                                            variant="raised" >
                                                 Registrarse
                                                 
                                         </Button>
