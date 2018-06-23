@@ -1,6 +1,6 @@
 import React from 'react'
 import {Drawer,IconButton,Divider,List,ListItem,ListItemIcon,ListItemText} from '@material-ui/core'
-import {ChevronRight as ChevronRightIcon,ChevronLeft as ChevronLeftIcon,People as PeopleIcon} from '@material-ui/icons'
+import {ChevronRight as ChevronRightIcon,ChevronLeft as ChevronLeftIcon,People as PeopleIcon, ViewModule as ViewModuleIcon} from '@material-ui/icons'
 import { withStyles } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
@@ -46,7 +46,7 @@ const DrawerApp = (props) => {
                 </ListItem>
                 <ListItem button>
                     <ListItemIcon>
-                        <PeopleIcon />
+                        <ViewModuleIcon />
                     </ListItemIcon>
                     <ListItemText primary="Mis Colecciones" />
                 </ListItem>
