@@ -1,7 +1,9 @@
 import React from 'react'
 import {Drawer,IconButton,Divider,List,ListItem,ListItemIcon,ListItemText} from '@material-ui/core'
-import {ChevronRight as ChevronRightIcon,ChevronLeft as ChevronLeftIcon,People as PeopleIcon, ViewModule as ViewModuleIcon, Person as PersonIcon, Favorite as FavoriteIcon, ExitToApp as ExitToAppIcon} from '@material-ui/icons'
+import {ChevronRight as ChevronRightIcon,ChevronLeft as ChevronLeftIcon,People as PeopleIcon, ViewModule as ViewModuleIcon,
+     Person as PersonIcon, Favorite as FavoriteIcon, ExitToApp as ExitToAppIcon} from '@material-ui/icons'
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom'
 
 const drawerWidth = 240;
 
@@ -38,25 +40,25 @@ const DrawerApp = (props) => {
             </div>
             <Divider />
             <List component="nav">
-                <ListItem button>
+                <ListItem button component={Link} to="/perfil">
                     <ListItemIcon>
                         <PersonIcon />
                     </ListItemIcon>
                     <ListItemText primary="Mi Perfil" />
                 </ListItem>
-                <ListItem button>
+                <ListItem button  component={Link} to="/colecciones">
                     <ListItemIcon>
                         <ViewModuleIcon />
                     </ListItemIcon>
                     <ListItemText primary="Mis Colecciones" />
                 </ListItem>
-                <ListItem button>
+                <ListItem button component={Link} to="/favoritos">
                     <ListItemIcon>
                         <FavoriteIcon />
                     </ListItemIcon>
                     <ListItemText primary="Favoritos" />
                 </ListItem>
-                <ListItem button>
+                <ListItem button component={Link} to="/amistades">
                     <ListItemIcon>
                         <PeopleIcon />
                     </ListItemIcon>
