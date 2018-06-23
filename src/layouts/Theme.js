@@ -40,13 +40,17 @@ class Theme extends React.Component {
   };
 
   render() {
-    const { classes,children, theme } = this.props;
+    const { classes,children, theme,onCloseSession } = this.props;
     const { open } = this.state;
     return (
       <div className={classes.root}>
         <div className={classes.appFrame}>
           <Header open={open} handleDrawerOpen={this.handleDrawerOpen} />
-          <DrawerApp open={open} handleDrawerClose={this.handleDrawerClose} />
+          <DrawerApp 
+          open={open} 
+          handleDrawerClose={this.handleDrawerClose}
+          onCloseSession={onCloseSession}
+           />
           <Content open={open}>
             {children}
           </Content>
