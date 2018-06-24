@@ -14,7 +14,7 @@ class Register extends Component{
                 <Grid justify="center" alignItems="center" style={{height : '80vh'}} container spacing={0}>
                     <Card>
                         
-                        <form style={{padding : 25}} noValidate autoComplete="off">
+                        <form style={{padding : 25,maxWidth:400}} noValidate autoComplete="off">
                         <div style={{backgroundColor:''}}>
                     
                         <img src={require('../../images/1icon-256x256.png')} style={{maxHeight: 100, marginLeft : 'auto', marginRight: 'auto',display: 'block'}}/>
