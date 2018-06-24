@@ -1,5 +1,6 @@
 export const ENDPOINTS = {
     //post
+    add_coleccion : "colecciones",
     //get
     authenticate : "usuario/authenticate"
 }

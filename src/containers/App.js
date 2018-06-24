@@ -6,6 +6,7 @@ import MisColecciones from '../views/MisColecciones/MisColecciones'
 import { Switch,BrowserRouter as Router,Route } from 'react-router-dom';
 import {httpPost} from '../services/servicesHttp'
 import {ENDPOINTS } from '../constants'
+import {ToastContainer} from 'react-toastify'
 
 class App extends React.Component {
     state = {
@@ -42,15 +43,18 @@ class App extends React.Component {
     }
     render(){
         const {login} = this.state;
-        const {registro} = this.state;
         return (
             <Router>
+                <div>
                     {login ? ( 
                     <Theme onCloseSession={this.onCloseSession}>
-                        <Switch>
-                             <Route path="/" exact render={ ()=> <h1>Home</h1> } /> 
-                             <Route path="/colecciones" component={MisColecciones}/> 
-                        </Switch>
+                        <div style={{marginTop : 64}}>
+                            <Switch>
+                                <Route path="/" exact render={ ()=> <h1>Home</h1> } /> 
+                                <Route path="/colecciones" component={MisColecciones}/> 
+                            </Switch>
+                          
+                        </div>
                     </Theme>) : (
                          <Switch>
                              <Route path="/" exact render={ ()=> <Login onLogin={this.onLogin}   />  } /> 
@@ -58,7 +62,8 @@ class App extends React.Component {
                         </Switch>
                         )
                     }
-               
+                     <ToastContainer draggablePercent={80} autoClose={2000} pauseOnHover={false} position="top-right"  />
+                </div>
             </Router>
         )
     }
