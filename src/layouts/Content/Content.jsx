@@ -7,12 +7,11 @@ const drawerWidth = 240;
 
 const styles = theme => ({
     content: {
-        marginTop : 30,
+        position : 'relative',
         height : '100vh',
         overflow : 'auto',
         flexGrow: 1,
         backgroundColor: theme.palette.background.default,
-        padding: theme.spacing.unit * 3,
         transition: theme.transitions.create('margin', {
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.leavingScreen,
