@@ -46,7 +46,7 @@ const DrawerApp = (props) => {
                     </ListItemIcon>
                     <ListItemText primary="Mi Perfil" />
                 </ListItem>
-                <ListItem button  component={Link} to="/colecciones">
+                <ListItem button  component={Link} to="/">
                     <ListItemIcon>
                         <ViewModuleIcon />
                     </ListItemIcon>

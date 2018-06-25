@@ -5,8 +5,10 @@ import {ChevronRight} from '@material-ui/icons';
 
 class Register extends Component{
     state = {
-        input : '',
-        password : ''
+        nombre : '',
+        apellido : '',
+        correo: '',
+        clave: ''
     }
     render(){
         return (
@@ -24,25 +26,25 @@ class Register extends Component{
                                 fullWidth
                                 label="Nombre"
                                 value={this.state.input}
-                                onChange={e=>this.setState({input : e.target.value})}
+                                onChange={e=>this.setState({nombre : e.target.value})}
                                 margin="normal"
                                 />
                                 <TextField
                                 fullWidth
                                 id="apellido"
                                 label="Apellido"
-                                type="email"
+                                type="text"
                                 value={this.state.password}
-                                onChange={e=>this.setState({password : e.target.value})}
+                                onChange={e=>this.setState({apellido : e.target.value})}
                                 margin="normal"
                                 />
                                 <TextField
                                 fullWidth
                                 id="correo"
                                 label="Correo"
-                                type="email"
+                                type="text"
                                 value={this.state.password}
-                                onChange={e=>this.setState({password : e.target.value})}
+                                onChange={e=>this.setState({correo : e.target.value})}
                                 margin="normal"
                                 />
                                 <TextField
@@ -51,7 +53,7 @@ class Register extends Component{
                                 label="Clave"
                                 type="password"
                                 value={this.state.password}
-                                onChange={e=>this.setState({password : e.target.value})}
+                                onChange={e=>this.setState({clave : e.target.value})}
                                 margin="normal"
                                 />
                              </form>

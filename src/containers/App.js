@@ -50,7 +50,7 @@ class App extends React.Component {
                     <Theme onCloseSession={this.onCloseSession}>
                         <div style={{marginTop : 64}}>
                             <Switch>
-                                <Route path="/" exact render={ ()=> <h1>Home</h1> } /> 
+                                <Route path="/" exact component={MisColecciones} /> 
                                 <Route path="/colecciones" component={MisColecciones}/> 
                             </Switch>
                           
