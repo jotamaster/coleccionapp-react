@@ -38,8 +38,22 @@ class App extends React.Component {
         })
     }
 
-    onRegister = ()=>{
-        this.setState({registro : true})
+    onRegister = (nombre,apellido,correo,clave)=>{
+        const payload = {
+            nombre: nombre,
+            apellido :apellido,
+            email: correo,
+            clave: clave
+        }
+       
+        httpPost(ENDPOINTS.register, payload).then(response => {
+
+            if(response.status === 200){
+                this.setState({login : false})
+                
+            }
+
+        })
     }
     render(){
         const {login} = this.state;
@@ -58,7 +72,7 @@ class App extends React.Component {
                     </Theme>) : (
                          <Switch>
                              <Route path="/" exact render={ ()=> <Login onLogin={this.onLogin}   />  } /> 
-                             <Route path="/register"  component={Register}/> 
+                             <Route path="/register" render={ ()=> <Register onRegister={this.onRegister}   />  }/> 
                         </Switch>
                         )
                     }

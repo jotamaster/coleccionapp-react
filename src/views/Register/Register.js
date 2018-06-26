@@ -10,6 +10,9 @@ class Register extends Component{
         correo: '',
         clave: ''
     }
+    register = ()=>{
+        this.props.onRegister(this.state.nombre,this.state.apellido,this.state.correo,this.state.clave)
+    }
     render(){
         return (
             <div className="Auth">
@@ -25,7 +28,7 @@ class Register extends Component{
                                 id="nombre"
                                 fullWidth
                                 label="Nombre"
-                                value={this.state.input}
+                                value={this.state.nombre}
                                 onChange={e=>this.setState({nombre : e.target.value})}
                                 margin="normal"
                                 />
@@ -34,7 +37,7 @@ class Register extends Component{
                                 id="apellido"
                                 label="Apellido"
                                 type="text"
-                                value={this.state.password}
+                                value={this.state.apellido}
                                 onChange={e=>this.setState({apellido : e.target.value})}
                                 margin="normal"
                                 />
@@ -43,7 +46,7 @@ class Register extends Component{
                                 id="correo"
                                 label="Correo"
                                 type="text"
-                                value={this.state.password}
+                                value={this.state.correo}
                                 onChange={e=>this.setState({correo : e.target.value})}
                                 margin="normal"
                                 />
@@ -52,7 +55,7 @@ class Register extends Component{
                                 id="clave"
                                 label="Clave"
                                 type="password"
-                                value={this.state.password}
+                                value={this.state.clave}
                                 onChange={e=>this.setState({clave : e.target.value})}
                                 margin="normal"
                                 />
@@ -69,7 +72,7 @@ class Register extends Component{
                                         </Button>
                                         <Button 
                                             style={{marginLeft : 'auto', color:'#fff',backgroundColor : '#1976D2 '}}
-                                            onClick={()=>this.login()} variant="raised" >
+                                            onClick={()=>this.register()} variant="raised" >
                                                 Registrarme
                                                 <ChevronRight />
                                         </Button>
