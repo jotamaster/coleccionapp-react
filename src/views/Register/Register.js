@@ -1,7 +1,10 @@
 import React,{Component} from 'react'
-import { Switch,BrowserRouter as Router,Route,Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
+import {toast} from 'react-toastify'
 import {Grid,Hidden,CardContent,Button,CardActions,TextField,FormControlLabel,Card,Typography} from '@material-ui/core'
 import {ChevronRight} from '@material-ui/icons';
+import {httpPost} from '../../services/servicesHttp'
+import {ENDPOINTS } from '../../constants'
 
 class Register extends Component{
     state = {
@@ -10,8 +13,24 @@ class Register extends Component{
         correo: '',
         clave: ''
     }
-    register = ()=>{
-        this.props.onRegister(this.state.nombre,this.state.apellido,this.state.correo,this.state.clave)
+    onRegister = ()=>{
+        const {nombre,apellido,correo,clave} = this.state;
+        const payload = {
+            nombre,
+            apellido,
+            email : correo,
+            clave
+        }
+        if(nombre && apellido && correo && clave){
+            httpPost(ENDPOINTS.register, payload).then(response => {
+                if(response.status === 200){
+                    toast.success("Se ha registrado exitosamente");
+                    this.props.history.goBack()
+                }
+            })
+        }else{
+            toast.warn("Debe completar todos los campos");
+        }
     }
     render(){
         return (
@@ -72,7 +91,7 @@ class Register extends Component{
                                         </Button>
                                         <Button 
                                             style={{marginLeft : 'auto', color:'#fff',backgroundColor : '#1976D2 '}}
-                                            onClick={()=>this.register()} variant="raised" >
+                                            onClick={()=>this.onRegister()} variant="raised" >
                                                 Registrarme
                                                 <ChevronRight />
                                         </Button>
