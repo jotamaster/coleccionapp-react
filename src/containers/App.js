@@ -55,7 +55,6 @@ class App extends React.Component {
                                 <Route path="/" exact component={()=><Redirect to="/colecciones" />} /> 
                                 <Route path="/colecciones" component={MisColecciones}/> 
                             </Switch>
-                          
                         </div>
                     </Theme>) : (
                          <Switch>

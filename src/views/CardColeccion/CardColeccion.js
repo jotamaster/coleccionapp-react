@@ -1,13 +1,13 @@
 import React , {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { Grid,Card,CardActions } from '@material-ui/core';
+import { Grid,Card,CardActions,Button } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { httpGet} from '../../services/servicesHttp'
 import {ENDPOINTS } from '../../constants'
+import {Link} from 'react-router-dom'
 import defecto from '../../images/defecto.png'
 import withSizes from 'react-sizes'
 
@@ -47,10 +47,9 @@ class CardColeccion extends Component {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" color="primary" style={{marginLeft:'auto'}}>
+                <Button component={Link} to={this.props.match.path+"/"+item.Id} size="small" color="primary" style={{marginLeft:'auto'}}>
                   Entrar
                 </Button>
-              
               </CardActions>
             </Card>
           </Grid>
