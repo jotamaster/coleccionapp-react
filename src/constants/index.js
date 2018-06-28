@@ -3,6 +3,7 @@ export const ENDPOINTS = {
     add_coleccion : "colecciones",
     //get
     authenticate : "usuario/authenticate",
+    fetch_colecciones : "colecciones",
     //post
     register : "usuario/"
 }

@@ -10,6 +10,7 @@ import Toast,{toast} from 'react-toastify'
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {httpPost} from '../../services/servicesHttp'
 import {ENDPOINTS } from '../../constants'
+import CardColeccion from '../CardColeccion/CardColeccion'
 
 const styles = theme => ({
   button : {
@@ -48,6 +49,7 @@ class MisColecciones extends Component {
         return (
            <div className={classes.root}>
                 <div>
+                <CardColeccion/>
                 <Dialog
                 open={this.state.open}
                 onClose={()=>this.setState({open : false})}

@@ -64,7 +64,7 @@ class Register extends Component{
                                 fullWidth
                                 id="correo"
                                 label="Correo"
-                                type="text"
+                                type="email"
                                 value={this.state.correo}
                                 onChange={e=>this.setState({correo : e.target.value})}
                                 margin="normal"
