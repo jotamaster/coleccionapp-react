@@ -3,7 +3,7 @@ import Theme from '../layouts/Theme'
 import Login from '../views/Login/Login'
 import Register from '../views/Register/Register'
 import MisColecciones from '../views/MisColecciones/MisColecciones'
-import { Switch,BrowserRouter as Router,Route } from 'react-router-dom';
+import { Switch,BrowserRouter as Router,Route,Redirect } from 'react-router-dom';
 import {httpPost} from '../services/servicesHttp'
 import {ENDPOINTS } from '../constants'
 import {ToastContainer, toast} from 'react-toastify'
@@ -52,7 +52,7 @@ class App extends React.Component {
                     <Theme onCloseSession={this.onCloseSession}>
                         <div style={{marginTop : 64}}>
                             <Switch>
-                                <Route path="/" exact component={MisColecciones} /> 
+                                <Route path="/" exact component={()=><Redirect to="/colecciones" />} /> 
                                 <Route path="/colecciones" component={MisColecciones}/> 
                             </Switch>
                           

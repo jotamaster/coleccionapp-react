@@ -8,48 +8,60 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import Toast,{toast} from 'react-toastify'
 import DialogTitle from '@material-ui/core/DialogTitle';
-import {httpPost} from '../../services/servicesHttp'
+import {httpPost,httpGet} from '../../services/servicesHttp'
 import {ENDPOINTS } from '../../constants'
 import CardColeccion from '../CardColeccion/CardColeccion'
 
 const styles = theme => ({
   button : {
-      position : 'absolute',
+      position : 'fixed',
       right : 15,
       bottom : 15
+      
  }
 });
 
 class MisColecciones extends Component {
     state = {
-        hidden: true,
         open: false,
         name : '',
         detail : '',
-        type : ''
-    }
-    onAddCollection = (e)=>{
-        const payload = {nombre: this.state.name, detalle : this.state.detail, tipo: this.state.type}
-        const {access_token} = JSON.parse(localStorage.getItem('auth'));
-        httpPost(ENDPOINTS.add_coleccion, payload, access_token).then(response => {
-
-            if(response.status === 200){
-                toast.success(response.data.success);
-                this.setState({open : false})
-            }
-
-        })
-       
+        type : '',
+        colecciones : []
     }
    componentDidMount(){
-        this.setState({hidden : false})
+        this.fetchColecciones()
    }
+   fetchColecciones = ()=>{
+        const {access_token} = JSON.parse(localStorage.getItem('auth'));
+        httpGet(ENDPOINTS.fetch_colecciones,null, access_token).then(response=>{
+            if(response.status === 200){
+                this.setState({colecciones : response.data})
+            }
+        })
+   }
+    onAddCollection = (e)=>{
+        if(this.state.name == "" || this.state.detail =="" || this.state.type ==""){
+            toast.warn("Por favor rellenar todos los campos");
+        }else{
+            const payload = {nombre: this.state.name, detalle : this.state.detail, tipo: this.state.type}
+            const {access_token} = JSON.parse(localStorage.getItem('auth'));
+            httpPost(ENDPOINTS.add_coleccion, payload, access_token).then(response => {
+                if(response.status === 200){
+                    toast.success(response.data.success);
+                    this.fetchColecciones()
+                    this.setState({open : false})
+                }
+            })
+        }
+       
+    }
     render(){
         const { classes } = this.props;
         return (
            <div className={classes.root}>
                 <div>
-                <CardColeccion/>
+                <CardColeccion colecciones={this.state.colecciones}/>
                 <Dialog
                 open={this.state.open}
                 onClose={()=>this.setState({open : false})}
